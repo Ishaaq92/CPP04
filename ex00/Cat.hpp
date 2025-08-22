@@ -11,5 +11,6 @@ class Cat : public Animal
 	public:
 		Cat(void);
 		~Cat(void);
+		Cat	&operator=(const Cat &rhs);
 		void	makeSound(void) const;
 };

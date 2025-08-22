@@ -12,8 +12,14 @@ Cat::~Cat(void)
 	std::cout << "Cat has been Destructed" << std::endl;
 }
 
-void	Cat::makeSound(void) const
+void	Cat::makeSound(void)
 {
 	std::cout << "Cat meows" << std::endl;
+}
+
+Cat	&Cat::operator=(const Cat &rhs) const 
+{
+	this->type = rhs.type;
+	return (this);
 }
 
