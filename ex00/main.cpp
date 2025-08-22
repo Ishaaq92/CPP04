@@ -24,4 +24,11 @@ int	main(void)
 
 	k->makeSound();
 	meta1->makeSound();
+
+	std::cout << "------ Free ------" <<  std::endl;
+	delete meta0;
+	delete j;
+	delete i;
+	delete meta1;
+	delete k;
 }
