@@ -8,6 +8,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	@$(MAKE) clean
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
