@@ -1,5 +1,5 @@
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = animal
@@ -12,12 +12,6 @@ $(NAME): $(OBJS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
-
-v:
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -g
-	@$(MAKE) clean
-	valgrind ./$(NAME) 
-	
 
 re: fclean all
 
