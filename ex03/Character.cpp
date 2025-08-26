@@ -6,7 +6,7 @@
 /*   By: isahmed <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/26 16:15:51 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/26 16:22:45 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,12 @@ void				Character::equip(AMateria *m)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	if (this->items_ == 4)
 		return ;
-	while (i < 4)
+	while (++i < 4)
 		if (NULL == this->inventory_[i])
 			break ;
-	m->getType();
 	this->inventory_[i] = m;
 	this->items_++;
 }
