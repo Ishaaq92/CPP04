@@ -6,7 +6,7 @@
 /*   By: isahmed <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/26 16:07:19 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/26 16:15:51 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,17 @@ std::string const	&Character::getName() const
 
 void				Character::equip(AMateria *m)
 {
-		if (this->items_ == 4)
-			return ;
-		m->getType();
-		// this->inventory_[this->items_] = m;
-		this->items_++;
+	int	i;
+
+	i = 0;
+	if (this->items_ == 4)
+		return ;
+	while (i < 4)
+		if (NULL == this->inventory_[i])
+			break ;
+	m->getType();
+	this->inventory_[i] = m;
+	this->items_++;
 }
 
 void				Character::unequip(int idx)
