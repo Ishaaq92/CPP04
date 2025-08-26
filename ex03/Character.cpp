@@ -6,7 +6,7 @@
 /*   By: isahmed <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/26 16:44:11 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/26 16:57:05 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Character::Character(std::string name) : name_(name), items_(0)
 {
-	for (int i=0;this->inventory_[i];i++)
+	for (int i=0;i<4;i++)
 		this->inventory_[i] = NULL;
 	std::cout << "Character was Constructed" << std::endl;
 }
@@ -29,7 +29,7 @@ Character::Character(const Character &c) : name_(c.name_), items_(c.items_)
 
 Character::~Character(void)
 {
-	for (int i=0;i < 4;i ++)
+	for (int i=0;i<4;i ++)
 		if (this->inventory_[i])
 			delete this->inventory_[i];
 	std::cout << "Character was Destructed" << std::endl;

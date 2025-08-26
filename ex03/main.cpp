@@ -13,7 +13,7 @@ int		main(void)
 	alice.equip(&i);
 	alice.equip(&c);
 
-	std::cout << i.getType() << std::endl;
-	std::cout << c.getType() << std::endl;
+	std::cout << alice.getName() << std::endl;
+	std::cout << bob.getName() << std::endl;
 }
 

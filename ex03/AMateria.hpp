@@ -12,7 +12,7 @@ class AMateria
 
 	public:
 		AMateria(std::string const & type);
-		~AMateria(void);
+		virtual ~AMateria(void);
 // 		[...]
 		std::string const	&getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
