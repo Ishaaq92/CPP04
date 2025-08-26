@@ -6,7 +6,7 @@
 /*   By: isahmed <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/26 17:05:26 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/26 17:26:24 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		Character::equip(AMateria *m)
 	int	i;
 
 	i = -1;
-	if (this->items_ == 4)
+	if (this->items_ > 4)
 		return ;
 	while (++i < 4)
 		if (NULL == this->inventory_[i])
@@ -70,16 +70,18 @@ void		Character::equip(AMateria *m)
 	std::cout << this->getName() << " has equipped " << m->getType() << std::endl;
 }
 
-void				Character::unequip(int idx)
+void	Character::unequip(int idx)
 {
-	if (this->items_ == 0)
+	if (this->items_ == 0 || !this->inventory_[idx] || idx < 0 || idx > 3)
 		return ;
 	this->items_--;
-	this->inventory_[idx]->getType();
+	this->inventory_[idx] = NULL;
 }
 
 void				Character::use(int idx, ICharacter &target)
 {
+	if (this->items_ < 1 || idx < 0 || idx > 3 || !this->inventory_[idx])
+		return ;
 	this->inventory_[idx]->use(target);
 }
 
