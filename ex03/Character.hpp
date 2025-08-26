@@ -6,7 +6,7 @@
 /*   By: isahmed <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:25:46 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/26 15:32:08 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/26 16:02:24 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Character : public ICharacter
 {
 	private:
 		std::string	name_;
-		AMateria	*inventory_;
+		AMateria	*inventory_[4];
 		int			items_;
 
 	protected:

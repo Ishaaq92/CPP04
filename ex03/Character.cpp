@@ -6,7 +6,7 @@
 /*   By: isahmed <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/26 15:40:38 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/26 16:07:19 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 
 Character::Character(std::string name) : name_(name), items_(0)
 {
-	this->inventory_ = new AMateria[4];
+	for (int i=0;this->inventory_[i];i++)
+		this->inventory_[i] = 0;
 	std::cout << "Character was Constructed" << std::endl;
 }
 
-Character::Character(const Character &c) : name_(c.name_), inventory_(c.inventory_), items_(0)
+Character::Character(const Character &c) : name_(c.name_), items_(0)
 {
+	for (int i=0;this->inventory_[i];i++)
+		this->inventory_[i] = 0;
 	std::cout << "Copy Constructor for Character was Called" << std::endl;
 }
 
@@ -55,11 +58,11 @@ void				Character::unequip(int idx)
 	if (this->items_ == 0)
 		return ;
 	this->items_--;
-	this->inventory_[idx].getType();
+	this->inventory_[idx]->getType();
 }
 
 void				Character::use(int idx, ICharacter &target)
 {
-	this->inventory_[idx].use(target);
+	this->inventory_[idx]->use(target);
 }
 

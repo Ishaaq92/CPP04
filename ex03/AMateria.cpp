@@ -14,8 +14,3 @@ std::string	const &AMateria::getType(void) const
 	return (this->type);
 }
 
-void AMateria::use(ICharacter& target)
-{
-	std::cout << this->getType() << ": " << "* shoots an ice bolt at " <<  target.getName() << " * " << std::endl;
-}
-
