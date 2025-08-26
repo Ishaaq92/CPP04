@@ -12,6 +12,9 @@ int		main(void)
 	Cure	c = Cure();
 	alice.equip(&i);
 	alice.equip(&c);
+	alice.unequip(0);
+	alice.use(1, bob);
+	alice.use(0, bob);
 
 	std::cout << i.getType() << std::endl;
 	std::cout << c.getType() << std::endl;
