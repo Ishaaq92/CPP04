@@ -6,7 +6,7 @@
 /*   By: isahmed <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/26 16:57:05 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/26 17:01:13 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void		Character::equip(AMateria *m)
 	while (++i < 4)
 		if (NULL == this->inventory_[i])
 			break ;
-	this->inventory_[i] = m;
+	this->inventory_[i] = m->clone();
 	this->items_++;
 }
 
