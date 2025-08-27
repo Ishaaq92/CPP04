@@ -1,6 +1,6 @@
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-SRCS = AMateria.cpp Ice.cpp Cure.cpp main.cpp Character.cpp 
+SRCS = AMateria.cpp Ice.cpp Cure.cpp main.cpp Character.cpp MateriaSource.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = materia
 
