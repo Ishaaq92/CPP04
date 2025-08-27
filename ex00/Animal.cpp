@@ -16,7 +16,7 @@ Animal::~Animal(void)
 	std::cout << "Animal is destructed" << std::endl;
 }
 
-void	Animal::makeSound(void)
+void	Animal::makeSound(void) const
 {
 	std::cout << "Animal makes noise" << std::endl;
 }

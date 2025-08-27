@@ -3,28 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isahmed <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2025/08/26 17:32:52 by isahmed          ###   ########.fr       */
+/*   Updated: 2025/08/27 15:32:20 by ishaaq           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-
 Character::Character(std::string name) : name_(name), items_(0)
 {
 	for (int i=0;i<4;i++)
 		this->inventory_[i] = NULL;
-	std::cout << "Character was Constructed" << std::endl;
+	// std::cout << "Character was Constructed" << std::endl;
 }
 
 Character::Character(const Character &c) : name_(c.name_), items_(c.items_)
 {
 	for (int i=0;i<4;i++)
 		this->inventory_[i] = c.inventory_[i]->clone();
-	std::cout << "Copy Constructor for Character was Called" << std::endl;
+	// std::cout << "Copy Constructor for Character was Called" << std::endl;
 }
 
 Character::~Character(void)
@@ -32,7 +31,7 @@ Character::~Character(void)
 	for (int i=0;i<4;i ++)
 		if (this->inventory_[i])
 			delete this->inventory_[i];
-	std::cout << "Character was Destructed" << std::endl;
+	// std::cout << "Character was Destructed" << std::endl;
 }
 
 Character	&Character::operator=(const Character &rhs)
@@ -67,7 +66,7 @@ void		Character::equip(AMateria *m)
 			break ;
 	this->inventory_[i] = m->clone();
 	this->items_++;
-	std::cout << this->getName() << " has equipped " << m->getType() << std::endl;
+	// std::cout << this->getName() << " has equipped " << m->getType() << std::endl;
 }
 
 void	Character::unequip(int idx)
@@ -75,7 +74,7 @@ void	Character::unequip(int idx)
 	if (this->items_ == 0 || !this->inventory_[idx] || idx < 0 || idx > 3)
 		return ;
 	this->items_--;
-	std::cout << this->getName() << " has unequipped " << this->inventory_[idx]->getType() << std::endl;
+	// std::cout << this->getName() << " has unequipped " << this->inventory_[idx]->getType() << std::endl;
 	this->inventory_[idx] = NULL;
 }
 

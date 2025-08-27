@@ -20,5 +20,5 @@ void	Dog::makeSound(void) const
 Dog		&Dog::operator=(const Dog &rhs)
 {
 	this->type = rhs.type;
-	return (this);
+	return (*this);
 }

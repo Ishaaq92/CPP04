@@ -1,6 +1,7 @@
 #pragma once
-#include <iostream>
-#include "WrongAnimal.hpp"
+
+# include <iostream>
+# include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {
@@ -9,7 +10,9 @@ class WrongCat : public WrongAnimal
 	protected:
 
 	public:
+		WrongCat		&operator=(const WrongCat &rhs);
 		WrongCat(void);
 		~WrongCat(void);
 		void	makeSound(void) const;
 };
+
