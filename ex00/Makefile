@@ -1,5 +1,5 @@
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc/
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc/
 SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp
 NAME = animal
 ODIR = objs/
@@ -11,10 +11,12 @@ OBJS = $(patsubst $(SDIR)%.cpp,$(ODIR)%.o,$(FULL_SRCS))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-$(ODIR)%.o: $(SDIR)%.cpp | $(ODIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS): | $(ODIR)
+
+$(ODIR)%.o: $(SDIR)%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(ODIR):
 	@mkdir -p $(ODIR)
@@ -26,3 +28,5 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+
+.PHONY: all clean fclean re 

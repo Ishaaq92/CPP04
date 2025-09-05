@@ -13,7 +13,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-$(ODIR)%.o: $(SDIR)%.cpp | $(ODIR)
+$(OBJS): | $(ODIR)
+
+$(ODIR)%.o: $(SDIR)%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(ODIR):
