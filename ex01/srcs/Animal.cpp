@@ -1,7 +1,7 @@
 
 #include "Animal.hpp"
 
-Animal::Animal(std::string type) : type(type)
+Animal::Animal(std::string type) : _type(type)
 {
 	std::cout << "Animal is Constructed" << std::endl;
 }
@@ -23,6 +23,6 @@ void	Animal::makeSound(void) const
 
 std::string	Animal::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
 

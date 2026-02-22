@@ -3,7 +3,7 @@
 
 Cat::Cat(void)
 {
-	this->type = "Cat";
+	this->_type = "Cat";
 	this->brain = new Brain();
 	std::cout << "Cat has been Constructed" << std::endl;
 }

@@ -1,18 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/22 10:57:34 by ishaaq            #+#    #+#             */
+/*   Updated: 2026/02/22 11:56:19 by ishaaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
-#include <iostream>
+# include <iostream>
 
 class Animal
 {
 	private:
 
 	protected:
-		std::string type;
+		std::string _type;
 
 	public:
-		Animal(std::string type);
 		Animal(void);
 		virtual ~Animal(void);
+		Animal(const Animal &a);
+		Animal	&operator=(const Animal &rhs);
+		Animal(std::string type);
 		virtual void	makeSound(void) const;
 		std::string		getType(void) const;
 };

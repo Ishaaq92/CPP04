@@ -3,7 +3,7 @@
 
 Dog::Dog(void)
 {
-	this->type = "Dog";
+	this->_type = "Dog";
 	this->brain = new Brain();
 	std::cout << "Dog has been constructed" << std::endl;
 }
