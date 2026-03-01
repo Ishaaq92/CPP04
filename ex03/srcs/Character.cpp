@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2026/03/01 10:32:26 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/03/01 11:10:22 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ Character::Character(std::string name) : name_(name), items_(0)
 	// std::cout << "Character was Constructed" << std::endl;
 }
 
-Character::Character(const Character &c) : name_(c.name_), items_(c.items_)
+Character::Character(const Character &c)
 {
 	for (int i=0;i<4;i++)
-		this->inventory_[i] = c.inventory_[i]->clone();
+		if (c.inventory_[i])
+			this->inventory_[i] = NULL;
+	*this = c;
 	// std::cout << "Copy Constructor for Character was Called" << std::endl;
 }
 
@@ -44,8 +46,12 @@ Character	&Character::operator=(const Character &rhs)
 		if (this->inventory_[i])
 			delete this->inventory_[i];
 	for (int i=0;i < 4; i++)
+	{
 		if (rhs.inventory_[i])
-			this->inventory_[i] = rhs.inventory_[i];
+			this->inventory_[i] = rhs.inventory_[i]->clone();
+		else
+			this->inventory_[i] = NULL;
+	}
 	return (*this);
 }
 
@@ -64,14 +70,16 @@ void		Character::equip(AMateria *m)
 	while (++i < 4)
 		if (NULL == this->inventory_[i])
 			break ;
-	this->inventory_[i] = m->clone();
+	if (i == 4)
+		return ;
+	this->inventory_[i] = m;
 	this->items_++;
 	// std::cout << this->getName() << " has equipped " << m->getType() << std::endl;
 }
 
 void	Character::unequip(int idx)
 {
-	if (this->items_ == 0 || !this->inventory_[idx] || idx < 0 || idx > 3)
+	if (idx < 0 || idx > 3 || this->items_ == 0 || !this->inventory_[idx])
 		return ;
 	this->items_--;
 	// std::cout << this->getName() << " has unequipped " << this->inventory_[idx]->getType() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 10:26:20 by isahmed           #+#    #+#             */
-/*   Updated: 2026/03/01 10:28:43 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/03/01 10:50:32 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ Cure	&Cure::operator=(const Cure &rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	this->type = rhs.getType();
 	return (*this);
 }
 

@@ -10,11 +10,16 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::~MateriaSource(void)
 {
+	for (int i=0;i<4;i++)
+	 	if (this->inventory_[i])
+			delete (this->inventory_[i]);
 	// std::cout << "MateriaSource was destructed" << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &ms)
 {
+	for (int i=0;i<4;i++)
+		this->inventory_[i] = NULL;
 	*this = ms;
 	// std::cout << "MateriaSource was constructed" << std::endl;
 }
@@ -23,8 +28,18 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &rhs)
 {
 	if (this == &rhs)
 		return (*this);
+
 	for (int i=0;i<4;i++)
-		this->inventory_[i] = rhs.inventory_[i];
+	 	if (this->inventory_[i])
+			delete this->inventory_[i];
+
+	for (int i=0;i<4;i++)
+	{
+	 	if (rhs.inventory_[i])
+			this->inventory_[i] = rhs.inventory_[i]->clone();
+		else
+			this->inventory_[i] = NULL;
+	}
 	return (*this);
 }
 
@@ -49,7 +64,9 @@ void	MateriaSource::learnMateria(AMateria *m)
 	while (++i < 4)
 		if (!this->inventory_[i])
 			break;
-	if (i == 4)
+	if (i == 4 && m)
+		delete m;
+	else if (i == 4 && !m)
 		return ;
 	this->inventory_[i] = m;
 }

@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:30:58 by ishaaq            #+#    #+#             */
-/*   Updated: 2026/03/01 10:24:52 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/03/01 11:17:16 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ AMateria	&AMateria::operator=(const AMateria &rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	this->type = rhs.getType();
 	return (*this);
 }
 

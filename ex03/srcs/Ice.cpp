@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:33:08 by ishaaq            #+#    #+#             */
-/*   Updated: 2026/03/01 10:18:04 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/03/01 10:50:00 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ Ice	&Ice::operator=(const Ice &rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	*this = rhs;
 	return (*this);
 }
 
