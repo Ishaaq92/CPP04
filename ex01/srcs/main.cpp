@@ -1,21 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/22 12:16:36 by ishaaq            #+#    #+#             */
+/*   Updated: 2026/02/22 13:10:57 by ishaaq           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 int	main(void)
 {
-	Animal	*animals[100];
+	const int	max = 8;
 
-	for (int i=0;i<100;i++)
+	Animal	*animals[max];
+
+	std::cout << "\n" << max <<" Animals consisting of " << max /2 << " Dogs followed by 50 Cats.\n" << std::endl;
+	for (int i=0;i<max;i++)
 	{
-		if (i < 50)
+		if (i < (max/2))
 			animals[i] = new Dog();
 		else
 			animals[i] = new Cat();
 	}
 
-	std::cout << "100 Animals consisting of 50 Dogs followed by 50 Cats." << std::endl;
-
-	for (int i=0;i<100;i++)
+	for (int i=0;i<max;i++)
 		delete animals[i];
+
+	std::cout << "\n" << "Deep copy vs shallow copy" << std::endl;
+
+	Brain *brain1 = new Brain();
+	brain1->getBrain().setIdea("I'm Brain 1", 0);
+
+	Brain *brain2 = new Brain();
+	brain2->getBrain().setIdea("I'm Brain 2", 0);
+
+	brain1 = brain2;
+	if (brain1 == brain2)
+		std::cout << "Shallow"<< std::endl;
+	else 
+		std::cout << "deep"<< std::endl;
+	// brain1->printIdeas();
+	
 	return (0);
 }

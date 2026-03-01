@@ -1,4 +1,4 @@
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc/
 SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp
 NAME = animal
@@ -30,4 +30,3 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-
