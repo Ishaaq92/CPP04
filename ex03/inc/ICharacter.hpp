@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/01 10:34:20 by isahmed           #+#    #+#             */
+/*   Updated: 2026/03/01 10:34:24 by isahmed          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
-#include "AMateria.hpp"
-#include <iostream>
+# include "AMateria.hpp"
+# include <iostream>
 
 class AMateria;
 

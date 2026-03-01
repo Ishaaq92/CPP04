@@ -13,6 +13,21 @@ MateriaSource::~MateriaSource(void)
 	// std::cout << "MateriaSource was destructed" << std::endl;
 }
 
+MateriaSource::MateriaSource(const MateriaSource &ms)
+{
+	*this = ms;
+	// std::cout << "MateriaSource was constructed" << std::endl;
+}
+
+MateriaSource	&MateriaSource::operator=(const MateriaSource &rhs)
+{
+	if (this == &rhs)
+		return (*this);
+	for (int i=0;i<4;i++)
+		this->inventory_[i] = rhs.inventory_[i];
+	return (*this);
+}
+
 AMateria	*MateriaSource::createMateria(std::string const &type)
 {
 	int	i;

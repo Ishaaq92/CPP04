@@ -28,6 +28,7 @@ int		main(void)
 //	std::cout << bob.getName() << std::endl;
 }
 */
+
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
@@ -47,7 +48,6 @@ int main()
 
 	ICharacter* bob = new Character("bob");
 
-
 	me->use(0, *bob);
 	me->use(1, *bob);
 
@@ -57,6 +57,3 @@ int main()
 
 	return 0;
 }
-
-
-
