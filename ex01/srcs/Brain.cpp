@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 12:05:10 by ishaaq            #+#    #+#             */
-/*   Updated: 2026/02/22 13:12:27 by ishaaq           ###   ########.fr       */
+/*   Updated: 2026/03/01 08:58:56 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Brain::~Brain(void)
 
 Brain::Brain(const Brain &b)
 {
-	*this = b;
+	for (int i=0; i<100; i++)
+		this->_ideas[i] = b._ideas[i];
 	std::cout << "Brain is constructed" << std::endl;
 }
 
@@ -45,11 +46,11 @@ void	Brain::setIdea(std::string idea, const int i)
 	this->_ideas[i] = idea; 
 }
 
-Brain	&Brain::operator=(const Brain &rhs)
+Brain &Brain::operator=(const Brain &rhs)
 {
-	for (int i=0; i<100; i++)
-	{
-		this->_ideas[i] = rhs._ideas[i];
-	}
-	return (*this);
+    if (this == &rhs)
+        return (*this);
+    for (int i = 0; i < 100; i++)
+        this->_ideas[i] = rhs._ideas[i];
+    return (*this);
 }

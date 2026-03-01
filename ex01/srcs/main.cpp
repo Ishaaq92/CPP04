@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 12:16:36 by ishaaq            #+#    #+#             */
-/*   Updated: 2026/02/22 13:10:57 by ishaaq           ###   ########.fr       */
+/*   Updated: 2026/03/01 09:12:48 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,19 @@ int	main(void)
 	for (int i=0;i<max;i++)
 		delete animals[i];
 
-	std::cout << "\n" << "Deep copy vs shallow copy" << std::endl;
+	std::cout << "\n--- Testing Dog/Cat Deep Copy ---\n" << std::endl;
+	Dog basic;
+	{
+		Dog tmp = basic; // Tests copy constructor
+	} 
 
-	Brain *brain1 = new Brain();
-	brain1->getBrain().setIdea("I'm Brain 1", 0);
+	std::cout << "If we reach here without a segfault, the copy constructor is deep!" << std::endl;
 
-	Brain *brain2 = new Brain();
-	brain2->getBrain().setIdea("I'm Brain 2", 0);
+	Cat cat1;
+	Cat cat2;
+	cat2 = cat1; 
 
-	brain1 = brain2;
-	if (brain1 == brain2)
-		std::cout << "Shallow"<< std::endl;
-	else 
-		std::cout << "deep"<< std::endl;
-	// brain1->printIdeas();
+	std::cout << "If we reach here without a segfault, the assignment operator is deep!" << std::endl;
 	
 	return (0);
 }
