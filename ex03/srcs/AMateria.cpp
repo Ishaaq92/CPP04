@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:30:58 by ishaaq            #+#    #+#             */
-/*   Updated: 2026/03/01 11:17:16 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/03/01 11:25:24 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ AMateria	&AMateria::operator=(const AMateria &rhs)
 std::string	const &AMateria::getType(void) const
 {
 	return (this->type);
+}
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "* Materia is shot at " << target.getName() << " *" << std::endl;
 }

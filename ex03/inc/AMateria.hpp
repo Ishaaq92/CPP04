@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 10:08:17 by isahmed           #+#    #+#             */
-/*   Updated: 2026/03/01 10:22:49 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/03/01 11:22:34 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ class AMateria
 		virtual ~AMateria(void);
 		std::string const	&getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target) = 0;
+		virtual void use(ICharacter& target);
 };

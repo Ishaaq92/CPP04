@@ -6,7 +6,7 @@
 /*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:11:54 by isahmed           #+#    #+#             */
-/*   Updated: 2026/03/01 11:10:22 by isahmed          ###   ########.fr       */
+/*   Updated: 2026/03/01 11:32:01 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ Character::Character(std::string name) : name_(name), items_(0)
 Character::Character(const Character &c)
 {
 	for (int i=0;i<4;i++)
-		if (c.inventory_[i])
-			this->inventory_[i] = NULL;
+		this->inventory_[i] = NULL;
 	*this = c;
 	// std::cout << "Copy Constructor for Character was Called" << std::endl;
 }
@@ -65,7 +64,7 @@ void		Character::equip(AMateria *m)
 	int	i;
 
 	i = -1;
-	if (this->items_ > 4)
+	if (!m || this->items_ > 3)
 		return ;
 	while (++i < 4)
 		if (NULL == this->inventory_[i])

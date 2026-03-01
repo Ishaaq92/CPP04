@@ -32,9 +32,11 @@ int		main(void)
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
+	Ice		*i = new Ice();
+	Cure	*c = new Cure();
 
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	src->learnMateria(i);
+	src->learnMateria(c);
 
 	ICharacter* me = new Character("me");
 
@@ -54,6 +56,8 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+	delete i;
+	delete c;
 
 	return 0;
 }

@@ -65,9 +65,11 @@ void	MateriaSource::learnMateria(AMateria *m)
 		if (!this->inventory_[i])
 			break;
 	if (i == 4 && m)
+	{
 		delete m;
+		return ;
+	}
 	else if (i == 4 && !m)
 		return ;
-	this->inventory_[i] = m;
+	this->inventory_[i] = m->clone();
 }
-
