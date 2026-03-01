@@ -1,11 +1,13 @@
-CC = clang++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc/
-SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp
+SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp AAnimal.cpp Brain.cpp 
 NAME = animal
-SDIR = srcs/
+
 ODIR = objs/
+SDIR = srcs/
 
 FULL_SRCS = $(addprefix $(SDIR), $(SRCS))
+
 OBJS = $(patsubst $(SDIR)%.cpp, $(ODIR)%.o, $(FULL_SRCS))
 
 all: $(NAME)
@@ -28,4 +30,3 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-

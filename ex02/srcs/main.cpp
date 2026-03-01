@@ -1,21 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/22 12:16:36 by ishaaq            #+#    #+#             */
+/*   Updated: 2026/03/01 10:03:29 by isahmed          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 int	main(void)
 {
-	Animal	*animals[100];
+	// AAnimal test;
 
-	for (int i=0;i<100;i++)
-	{
-		if (i < 50)
-			animals[i] = new Dog();
-		else
-			animals[i] = new Cat();
-	}
+	const AAnimal* j = new Dog();
+    const AAnimal* i = new Cat();
 
-	std::cout << "100 Animals consisting of 50 Dogs followed by 50 Cats." << std::endl;
+    j->makeSound(); // Will output the dog sound
+    i->makeSound(); // Will output the cat sound
 
-	for (int i=0;i<100;i++)
-		delete animals[i];
+    delete j;
+    delete i;
+
 	return (0);
 }

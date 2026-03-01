@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 10:57:34 by ishaaq            #+#    #+#             */
-/*   Updated: 2026/02/22 12:31:47 by ishaaq           ###   ########.fr       */
+/*   Updated: 2026/03/01 09:38:13 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <iostream>
 # include "Brain.hpp"
 
-class Animal
+class AAnimal
 {
 	private:
 
@@ -23,11 +23,11 @@ class Animal
 		std::string _type;
 
 	public:
-		Animal(void);
-		virtual ~Animal(void);
-		Animal(const Animal &a);
-		Animal	&operator=(const Animal &rhs);
-		Animal(std::string type);
-		virtual void	makeSound(void) const;
+		AAnimal(void);
+		virtual ~AAnimal(void);
+		AAnimal(const AAnimal &a);
+		AAnimal	&operator=(const AAnimal &rhs);
+		AAnimal(std::string type);
+		virtual void	makeSound(void) const = 0;
 		std::string		getType(void) const;
 };
