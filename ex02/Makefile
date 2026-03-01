@@ -1,6 +1,6 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc/
-SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp AAnimal.cpp Brain.cpp 
+SRCS = main.cpp Dog.cpp Cat.cpp AAnimal.cpp Brain.cpp 
 NAME = animal
 
 ODIR = objs/
