@@ -1,5 +1,5 @@
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc/
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc/
 SRCS = AMateria.cpp Ice.cpp Cure.cpp main.cpp Character.cpp MateriaSource.cpp
 NAME = materia
 
@@ -12,12 +12,12 @@ OBJS = $(patsubst $(SDIR)%.cpp, $(ODIR)%.o, $(FULL_SRCS))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 $(OBJS): | $(ODIR)
 
 $(ODIR)%.o: $(SDIR)%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(ODIR):
 	@mkdir -p $(ODIR)

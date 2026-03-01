@@ -3,26 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishaaq <ishaaq@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isahmed <isahmed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:30:58 by ishaaq            #+#    #+#             */
-/*   Updated: 2025/08/27 15:32:39 by ishaaq           ###   ########.fr       */
+/*   Updated: 2026/03/01 10:24:52 by isahmed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
+AMateria::AMateria(void)
+{
+	// std::cout << "AMateria is constructed" << std::endl;
+}
+
+AMateria::~AMateria(void)
+{
+	// std::cout << "AMateria is constructed" << std::endl;
+}
+
 AMateria::AMateria(std::string const &type) : type(type)
 {
 	// std::cout << "AMateria is constructed" << std::endl;
 }
-AMateria::~AMateria(void)
+
+AMateria::AMateria(const AMateria &m)
 {
+	this->type = m.getType();
 	// std::cout << "AMateria is constructed" << std::endl;
+}
+  
+AMateria	&AMateria::operator=(const AMateria &rhs)
+{
+	if (this == &rhs)
+		return (*this);
+	this->type = rhs.getType();
+	return (*this);
 }
 
 std::string	const &AMateria::getType(void) const
 {
 	return (this->type);
 }
-
